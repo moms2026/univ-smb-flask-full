@@ -9,6 +9,9 @@
     </div>
     <div>
       <a class="btn btn-secondary" href="{{ url_for('list_items', kind=kind) }}">Retour</a>
+      <a class="btn btn-info text-white" href="{{ url_for('download_config', kind=kind, item_id=item.id) }}">
+        <i class="fa fa-download"></i> Télécharger config
+      </a>
       <form class="d-inline" method="post" action="{{ url_for('delete_item', kind=kind, item_id=item.id) }}" onsubmit="return confirm('Supprimer cet élément ?');">
         <button class="btn btn-danger">Supprimer</button>
       </form>

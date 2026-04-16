@@ -8,28 +8,49 @@
       <p>{{ description }}</p>
     </div>
   </div>
+  
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ 'danger' if category == 'danger' else 'success' }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+  {% endif %}
+  {% endwith %}
+  
   <div class="row">
     <div class="col-md-8">
       <div class="card">
         <div class="card-body">
-          <form method="post">
+          <form method="post" novalidate>
             <div class="mb-3">
-              <label class="form-label">Nom</label>
+              <label class="form-label">Nom <span class="text-danger">*</span></label>
               <input class="form-control" name="name" required />
+              <div class="form-text">Identification unique de la configuration</div>
             </div>
             {% for field in fields %}
             <div class="mb-3">
-              <label class="form-label">{{ field[1] }}</label>
+              <label class="form-label">{{ field[1] }} <span class="text-danger">*</span></label>
               {% if field[0] == 'backend_servers' %}
-                <input class="form-control" name="backend_servers" placeholder="serveur1,serveur2" required />
+                <input class="form-control" name="backend_servers" placeholder="serveur1.com,serveur2.com" required />
                 <div class="form-text">Séparez plusieurs serveurs par des virgules.</div>
+              {% elif field[0] == 'root_path' %}
+                <input class="form-control" name="{{ field[0] }}" placeholder="/var/www/html" required />
+                <div class="form-text">Doit commencer par /</div>
+              {% elif field[0] == 'ip_bind' %}
+                <input class="form-control" name="{{ field[0] }}" placeholder="192.168.1.1" required />
+                <div class="form-text">Format: xxx.xxx.xxx.xxx</div>
               {% else %}
                 <input class="form-control" name="{{ field[0] }}" required />
               {% endif %}
             </div>
             {% endfor %}
-            <button class="btn btn-primary" type="submit">Créer</button>
-            <a class="btn btn-secondary" href="{{ url_for('list_items', kind=kind) }}">Annuler</a>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="submit">Créer</button>
+              <a class="btn btn-secondary" href="{{ url_for('list_items', kind=kind) }}">Annuler</a>
+            </div>
           </form>
         </div>
       </div>

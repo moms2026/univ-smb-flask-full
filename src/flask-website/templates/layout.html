@@ -25,6 +25,7 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{ url_for('start') }}">Accueil</a>
                         </li>
+                        {% if session.get('user') %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('list_items', kind='ws') }}">Serveurs Web</a>
                         </li>
@@ -34,7 +35,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('list_items', kind='lb') }}">Load Balancers</a>
                         </li>
+                        {% endif %}
                     </ul>
+                    {% if session.get('user') %}
+                    <div class="navbar-text me-3">
+                        Connecté : <strong>{{ session.get('user') }}</strong>
+                    </div>
+                    <a class="btn btn-outline-danger btn-sm" href="{{ url_for('logout') }}">Déconnexion</a>
+                    {% endif %}
                 </div>
             </div>
         </nav>

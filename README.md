@@ -14,7 +14,29 @@ Démarrage du Site Web WebSite :
 
 `cd src/flask-website/ && flask --app website run -p 5001`
 
-L'application WebWebsite appelle ensuite l'API en HTTP sur `http://localhost:5000` pour charger et modifier les données JSON.
+L'application WebSite appelle ensuite l'API en HTTP sur `http://localhost:5000` pour charger et modifier les données JSON.
+
+# Fonctionnalités
+
+## Authentification
+- Page de connexion obligatoire avant d'accéder au site
+- Identifiants de test : 
+  - **Utilisateur** : admin / admin123
+  - **Utilisateur** : user / user123
+- Bouton de déconnexion dans la barre de navigation
+
+## Validation des formulaires
+- Validation obligatoire des champs requis (nom, détails spécifiques)
+- Messages d'erreur détaillés en cas de saisie invalide
+- Vérification du format des chemins racine (doivent commencer par `/`)
+- Vérification du format IP (xxx.xxx.xxx.xxx)
+- Vérification des serveurs backend pour les reverse proxy
+
+## Téléchargement des configurations
+- Bouton "Télécharger config" sur la page de détail de chaque élément
+- Génère automatiquement un fichier `.conf` Nginx
+- Nom du fichier incluant type, ID et timestamp
+- Prêt à être utilisé directement dans Nginx
 
 # Base de données
 
