@@ -16,6 +16,11 @@ Démarrage du Site Web WebSite :
 
 L'application WebSite appelle ensuite l'API en HTTP sur `http://localhost:5000` pour charger et modifier les données JSON.
 
+- Si tu exécutes le projet sur ton propre ordinateur, utilise :
+  - `http://localhost:5000` pour l'API
+  - `http://localhost:5001` pour le site Web
+- Si tu es dans GitHub.dev / Codespaces / Gitpod, utilise plutôt l'URL affichée dans l'onglet `Ports` pour le port 5001 (par exemple : `https://...-5001.app.github.dev/`).
+
 # Fonctionnalités
 
 ## Authentification
