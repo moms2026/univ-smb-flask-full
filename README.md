@@ -14,6 +14,8 @@ Démarrage du Site Web WebSite :
 
 `cd src/flask-website/ && flask --app website run -p 5001`
 
+L'application WebWebsite appelle ensuite l'API en HTTP sur `http://localhost:5000` pour charger et modifier les données JSON.
+
 # Base de données
 
 ## Pour voir l'état du serveur de base de données

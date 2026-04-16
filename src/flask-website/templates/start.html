@@ -4,10 +4,40 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<div class="container">
-  <div class="row">
+<div class="container py-5">
+  <div class="row mb-4">
     <div class="col">
-        Hello, WebSite !
+      <h1>Gestionnaire de configuration</h1>
+      <p>Ce site Webgenerator utilise l'API pour lire et modifier les configurations des serveurs Web, reverse proxy et load balancers.</p>
+    </div>
+  </div>
+  <div class="row gy-3">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Serveurs Web</h5>
+          <p class="card-text">Voir la liste des serveurs Web et générer leur configuration Nginx.</p>
+          <a class="btn btn-primary" href="{{ url_for('list_items', kind='ws') }}">Accéder</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Reverse Proxy</h5>
+          <p class="card-text">Gérer les reverse proxy et afficher leur fichier de configuration.</p>
+          <a class="btn btn-primary" href="{{ url_for('list_items', kind='rp') }}">Accéder</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Load Balancers</h5>
+          <p class="card-text">Configurer les load balancers et voir leurs règles proxy.</p>
+          <a class="btn btn-primary" href="{{ url_for('list_items', kind='lb') }}">Accéder</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

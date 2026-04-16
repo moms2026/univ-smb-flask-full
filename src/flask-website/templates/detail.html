@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+    </div>
+    <div>
+      <a class="btn btn-secondary" href="{{ url_for('list_items', kind=kind) }}">Retour</a>
+      <form class="d-inline" method="post" action="{{ url_for('delete_item', kind=kind, item_id=item.id) }}" onsubmit="return confirm('Supprimer cet élément ?');">
+        <button class="btn btn-danger">Supprimer</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header">Détails</div>
+    <div class="card-body">
+      <dl class="row">
+        <dt class="col-sm-3">ID</dt>
+        <dd class="col-sm-9">{{ item.id }}</dd>
+        <dt class="col-sm-3">Nom</dt>
+        <dd class="col-sm-9">{{ item.name }}</dd>
+        {% for col in columns %}
+        <dt class="col-sm-3">{{ col[1] }}</dt>
+        <dd class="col-sm-9">
+          {% if col[0] == 'backend_servers' %}
+            {{ item[col[0]] | join(', ') }}
+          {% else %}
+            {{ item[col[0]] }}
+          {% endif %}
+        </dd>
+        {% endfor %}
+      </dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Configuration Nginx</div>
+    <div class="card-body">
+      <pre class="bg-light p-3 rounded">{{ nginx_config }}</pre>
+    </div>
+  </div>
+</div>
+{% endblock %}

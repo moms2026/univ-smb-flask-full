@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Reverse Proxy 1",
+    "upstream_name": "backend",
+    "backend_servers": ["server1.example.com", "server2.example.com"]
+  },
+  {
+    "id": 2,
+    "name": "Reverse Proxy 2",
+    "upstream_name": "appcluster",
+    "backend_servers": ["app1.example.com", "app2.example.com"]
+  }
+]
