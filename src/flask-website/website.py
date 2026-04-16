@@ -13,7 +13,7 @@ API_BASE_URL = "http://localhost:5000"
 # Utilisateurs autorisés (à remplacer par une vraie DB en production)
 USERS = {
     "admin": "admin123",
-    "user": "user123"
+    "user": "user123",
 }
 
 TYPE_INFO = {

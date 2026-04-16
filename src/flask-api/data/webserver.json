@@ -10,11 +10,5 @@
     "name": "Web Server 2",
     "server_name": "app.example.com",
     "root_path": "/var/www/app"
-  },
-  {
-    "name": "test",
-    "server_name": "www.local.com",
-    "root_path": "cszdvzDV",
-    "id": 3
   }
 ]

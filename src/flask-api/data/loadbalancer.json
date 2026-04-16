@@ -1,2 +1,14 @@
-[{"id":1, "name":"LB Inter 1", "ip_bind": "172.0.0.1", "pass":"http://localhost/A"},
-{"id":2, "name":"LB Inter 2", "ip_bind": "172.0.0.2", "pass":"http://localhost/B"}]
+[
+  {
+    "id": 1,
+    "name": "LB Inter 1",
+    "ip_bind": "172.0.0.1",
+    "pass": "http://localhost/A"
+  },
+  {
+    "id": 2,
+    "name": "LB Inter 2",
+    "ip_bind": "172.0.0.2",
+    "pass": "http://localhost/B"
+  }
+]
